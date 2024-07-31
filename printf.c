@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
  * _printf - prints output format text
  *
@@ -8,7 +10,7 @@
  */
 int _printf(const char *format, ...)
 {
-	unsigned int t, count = 0;
+	unsigned int t, s_counter, count = 0;
 
 	va_list ar;
 
@@ -20,10 +22,20 @@ int _printf(const char *format, ...)
 		{
 			tf_putchar(format[t]);
 		}
-		if (format[t] == '%' && format[t + 1] == 'c')
+		else if (format[t + 1] == 'c')
 		{
 			tf_putchar(va_arg(ar, int));
 			t++;
+		}
+		else if (format[t + 1] == 's')
+		{
+			s_counter = puts(va_arg(ar, char *));
+			t++;
+			count += (s_counter - 1);
+		}
+		else if (format[t + 1] == '%')
+		{
+			tf_putchar('%');
 		}
 		count += 1;
 	}
