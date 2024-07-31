@@ -20,12 +20,14 @@ int _printf(const char *format, ...)
 		{
 			tf_putchar(format[t]);
 		}
-		if (format[t + 1] == 'c')
+		if (format[t] == '%' && format[t + 1] == 'c')
 		{
 			tf_putchar(va_arg(ar, int));
+			t++;
 		}
 		count += 1;
 	}
+	va_end(ar);
 
 	return (count);
 }
