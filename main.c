@@ -1,7 +1,5 @@
-#include <limits.h>
 #include <stdio.h>
 #include "main.h"
-
 /**
  * main - Entry point
  *
@@ -9,36 +7,27 @@
  */
 int main(void)
 {
-	int len;
-	int len2;
-	unsigned int ui;
-	void *addr;
+	/**printf("%c is a character\n", 'A');
+	#printf("%d is an interger\n", 100);
+	#int printed_char_num = printf("%s is my string string name\n", "Clement");
+	#printf("The last print char number %d", printed_char_num);
+	*/
+	int printed_count = _my_printf("This %c\n", 'A' );
+	printf("count = %d\n", printed_count);
+	int p2 = _my_printf("Name %s\n", "ALX Task");
+	printf("count2 = %d\n", p2);
 
-	len = _printf("Let's try to printf a simple sentence.\n");
-	len2 = printf("Let's try to printf a simple sentence.\n");
-	ui = (unsigned int)INT_MAX + 1024;
-	addr = (void *)0x7ffe637541f0;
-	_printf("Length:[%d, %i]\n", len, len);
-	printf("Length:[%d, %i]\n", len2, len2);
-	_printf("Negative:[%d]\n", -762534);
-	printf("Negative:[%d]\n", -762534);
-	_printf("Unsigned:[%u]\n", ui);
-	printf("Unsigned:[%u]\n", ui);
-	_printf("Unsigned octal:[%o]\n", ui);
-	printf("Unsigned octal:[%o]\n", ui);
-	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-	_printf("Character:[%c]\n", 'H');
-	printf("Character:[%c]\n", 'H');
-	_printf("String:[%s]\n", "I am a string !");
-	printf("String:[%s]\n", "I am a string !");
-	_printf("Address:[%p]\n", addr);
-	printf("Address:[%p]\n", addr);
-	len = _printf("Percent:[%%]\n");
-	len2 = printf("Percent:[%%]\n");
-	_printf("Len:[%d]\n", len);
-	printf("Len:[%d]\n", len2);
-	_printf("Unknown:[%r]\n");
-	printf("Unknown:[%r]\n");
+	int p3 = _my_printf("saturday is aug %d\n", 4);
+	printf("count3 = %d\n", p3);
+
+	int p4 = _my_printf("%d\n", -12331);
+	printf("count4 = %d\n", p4);
+
+	int p5 = _my_printf("%d\n", 0);
+	printf("count5 = %d\n", p5);
+
+	int p6 = _my_printf("%s %s %d %c\n", "ALX", "is", 100, 'A');
+	printf("count6 = %d\n", p6);
+
 	return (0);
-}
+}	
